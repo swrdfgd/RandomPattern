@@ -17,7 +17,7 @@
   <script>
 	function randFunc(deep){
 		deep = deep - 1
-		var mode = Math.ceil(Math.random()*3);
+		var mode = 1+Math.floor(Math.random()*4);
 		if (mode == 1 || deep == 0){
 			return [rndNum(),'x','y'][Math.floor(Math.random()*3)];
 		}
@@ -26,6 +26,9 @@
 		}
 		if (mode == 3){
 			return "(" + randFunc(deep) + ['+','-','*','/','**'][Math.floor(Math.random()*5)] + randFunc(deep) + ") ";
+		}
+		if (mode == 4){
+			return "Math." + ['abs','cbrt','ceil','expm1','f16round','floor','fround','log1p','log2','log10','round','sign','sqrt','trunc'][Math.floor(Math.random()*14)] + "(" + randFunc(deep) + ") ";
 		}
 	}
   </script>
